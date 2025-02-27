@@ -1,25 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#define Max 100
+#define Min 0
 
-// Hàm sinh mảng ngẫu nhiên
-void generateArray(int arr[], int n) {
+void mangNgauNhien(int arr[], int n) {
     srand(time(NULL));
     for (int i = 0; i < n; i++) {
-        arr[i] = rand() % 100;
+        arr[i] = rand()% (Max - Min +1)+ Min;
     }
 }
 
-// Hàm xuất mảng ra màn hình
-void printArray(int arr[], int n) {
+
+void XuatMang(int arr[], int n) {
     for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
     printf("\n");
 }
 
-// Hàm sắp xếp mảng tăng dần bằng Interchange Sort
-void interchangeSortAsc(int arr[], int n) {
+
+void interchangeSortTang(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
             if (arr[i] > arr[j]) {
@@ -31,8 +32,8 @@ void interchangeSortAsc(int arr[], int n) {
     }
 }
 
-// Hàm sắp xếp mảng giảm dần bằng Interchange Sort
-void interchangeSortDesc(int arr[], int n) {
+
+void interchangeSortGiam(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
             if (arr[i] < arr[j]) {
@@ -44,8 +45,8 @@ void interchangeSortDesc(int arr[], int n) {
     }
 }
 
-// Hàm sắp xếp mảng tăng dần bằng Bubble Sort
-void bubbleSortAsc(int arr[], int n) {
+
+void bubbleSortTang(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
@@ -57,8 +58,8 @@ void bubbleSortAsc(int arr[], int n) {
     }
 }
 
-// Hàm sắp xếp mảng giảm dần bằng Bubble Sort
-void bubbleSortDesc(int arr[], int n) {
+
+void bubbleSortGiam(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
             if (arr[j] < arr[j + 1]) {
@@ -77,25 +78,25 @@ int main() {
 
     int arr[n];
 
-    generateArray(arr, n);
+    mangNgauNhien(arr, n);
     printf("Mang ngau nhien: ");
-    printArray(arr, n);
+    XuatMang(arr, n);
 
-    interchangeSortAsc(arr, n);
-    printf("Mang sap xep tang dan bang Interchange Sort: ");
-    printArray(arr, n);
+    interchangeSortTang(arr, n);
+    printf("Mang sap xep tang dan bang Interchange Sort Tang: ");
+    XuatMang(arr, n);
 
-    interchangeSortDesc(arr, n);
-    printf("Mang sap xep giam dan bang Interchange Sort: ");
-    printArray(arr, n);
+    interchangeSortGiam(arr, n);
+    printf("Mang sap xep giam dan bang Interchange Sort Giam: ");
+    XuatMang(arr, n);
 
-    bubbleSortAsc(arr, n);
-    printf("Mang sap xep tang dan bang Bubble Sort: ");
-    printArray(arr, n);
+    bubbleSortTang(arr, n);
+    printf("Mang sap xep tang dan bang Bubble Sort Tang: ");
+    XuatMang(arr, n);
 
-    bubbleSortDesc(arr, n);
-    printf("Mang sap xep giam dan bang Bubble Sort: ");
-    printArray(arr, n);
+    bubbleSortGiam(arr, n);
+    printf("Mang sap xep giam dan bang Bubble Sort Giam: ");
+    XuatMang(arr, n);
 
     return 0;
 }
